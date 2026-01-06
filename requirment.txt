@@ -1,0 +1,10 @@
+$env:PATH = "D:\apache-maven-3.9.11\bin;" + $env:PATH
+
+mvn clean package
+
+
+
+D:\apache-jmeter-5.6.3\apache-tomcat-9.0.108\bin>startup.bat
+
+
+http://localhost:8081/pinnacle-java17/
