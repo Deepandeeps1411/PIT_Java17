@@ -2,11 +2,12 @@ package com.example.pinnacle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/login")
 public class LoginServletJava17 extends HttpServlet {
@@ -21,14 +22,12 @@ public class LoginServletJava17 extends HttpServlet {
         String userId = request.getParameter("userId");
         String ctc    = request.getParameter("ctc");
 
-        // EXACT match, case-sensitive: only this pair is allowed
+        // EXACT match, case-sensitive
         if ("Deepan".equals(userId) && "Deepan".equals(ctc)) {
-            // successful login -> redirect to home page
             response.sendRedirect(request.getContextPath() + "/home.html");
             return;
         }
 
-        // invalid credentials -> do NOT redirect; return "Invalid User"
         response.setContentType("text/html;charset=UTF-8");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 
@@ -42,7 +41,6 @@ public class LoginServletJava17 extends HttpServlet {
         }
     }
 
-    // allow GET to show a simple message or redirect to login page
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
